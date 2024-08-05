@@ -66,7 +66,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
         name: 'attributes7',
-        stem: 'Which statement best describes you?',
+        stem: 'Sizi en iyi tanımlayan ifade hangisidir?',
         answers: [
             {text:'I strongly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:7},
             {text:'I moderately prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:6},
