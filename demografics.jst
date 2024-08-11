@@ -1,91 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demografik Bilgiler </title>
-    <style>
-        .container {
-            display: none;
-            margin: 20px;
-        }
-        .container.active {
-            display: block;
-        }
-        .button {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        select {
-            font-size: 16px;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
+define(['managerAPI'], function(Manager){
+    var API = new Manager();
 
-    <!-- Birinci Sayfa: Doğum Ayı Seçimi -->
-    <div id="page1" class="container active">
-        <h2>Doğum Ayınızı Seçin</h2>
-        <div id="months">
-            <button class="button" onclick="selectMonth('Ocak')">Ocak</button>
-            <button class="button" onclick="selectMonth('Şubat')">Şubat</button>
-            <button class="button" onclick="selectMonth('Mart')">Mart</button>
-            <button class="button" onclick="selectMonth('Nisan')">Nisan</button>
-            <button class="button" onclick="selectMonth('Mayıs')">Mayıs</button>
-            <button class="button" onclick="selectMonth('Haziran')">Haziran</button>
-            <button class="button" onclick="selectMonth('Temmuz')">Temmuz</button>
-            <button class="button" onclick="selectMonth('Ağustos')">Ağustos</button>
-            <button class="button" onclick="selectMonth('Eylül')">Eylül</button>
-            <button class="button" onclick="selectMonth('Ekim')">Ekim</button>
-            <button class="button" onclick="selectMonth('Kasım')">Kasım</button>
-            <button class="button" onclick="selectMonth('Aralık')">Aralık</button>
-        </div>
-    </div>
+    API.addSettings('skip', true);
 
-    <!-- İkinci Sayfa: Doğum Yılı Seçimi -->
-    <div id="page2" class="container">
-        <h2>Doğum Yılınızı Seçin</h2>
-        <select id="yearSelect"></select>
-        <br>
-        <button class="button" onclick="submitForm()">Tamamla</button>
-    </div>
+    // Global değişkenler
+    API.addGlobal({
+        selectedMonth: '',
+        selectedYear: ''
+    });
 
-    <script>
-        // Doğum ayı seçimi ve sayfa geçişi
-        function selectMonth(month) {
-            console.log("Seçilen Ay: " + month);
-            document.getElementById('page1').classList.remove('active');
-            document.getElementById('page2').classList.add('active');
-        }
-
-        // Doğum yıllarını doldurma
-        window.onload = function() {
-            const yearSelect = document.getElementById('yearSelect');
-            for (let year = 2005; year >= 1910; year--) {
-                const option = document.createElement('option');
-                option.value = year;
-                option.text = year;
-                yearSelect.appendChild(option);
+    // İlk sayfa: Doğum ayı seçimi
+    API.addTasksSet({
+        selectMonth: [{
+            type: 'message',
+            name: 'selectMonth',
+            template: '<h2>Doğum Ayınızı Seçin</h2><div id="months"></div>',
+            layout: [
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Ocak\')">Ocak</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Şubat\')">Şubat</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Mart\')">Mart</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Nisan\')">Nisan</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Mayıs\')">Mayıs</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Haziran\')">Haziran</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Temmuz\')">Temmuz</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Ağustos\')">Ağustos</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Eylül\')">Eylül</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Ekim\')">Ekim</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Kasım\')">Kasım</button>'}},
+                {media: {inlineHtml: '<button class="button" onclick="selectMonth(\'Aralık\')">Aralık</button>'}},
+            ],
+            customData: {
+                event: 'setSelectedMonth',
+                handler: function(event, response, API, global){
+                    global.selectedMonth = response;
+                    API.doAction({type: 'goto', taskName: 'selectYear'});
+                }
             }
-        };
+        }]
+    });
 
-        // Formu gönderme (işlevselliği örnek olarak eklenmiştir)
-        function submitForm() {
-            const selectedYear = document.getElementById('yearSelect').value;
-            console.log("Seçilen Yıl: " + selectedYear);
-            alert("Doğum tarihiniz: " + selectedYear);
-        }
-    </script>
-</body>
-</html>
+    // İkinci sayfa: Doğum yılı seçimi
+    API.addTasksSet({
+        selectYear: [{
+            type: 'quest',
+            name: 'selectYear',
+            layout: [
+                {media: {inlineHtml: '<h2>Doğum Yılınızı Seçin</h2>'}},
+                {
+                    media: {
+                        inlineHtml: '<select id="yearSelect"></select>',
+                        inlineScript: function(API, global) {
+                            const yearSelect = document.getElementById('yearSelect');
+                            for (let year = 2005; year >= 1910; year--) {
+                                const option = document.createElement('option');
+                                option.value = year;
+                                option.text = year;
+                                yearSelect.appendChild(option);
+                            }
+                            yearSelect.addEventListener('change', function() {
+                                global.selectedYear = yearSelect.value;
+                                alert("Doğum tarihiniz: " + global.selectedMonth + " " + global.selectedYear);
+                            });
+                        }
+                    }
+                }
+            ]
+        }]
+    });
+
+    // Sayfa sıralaması
+    API.addSequence([
+        {inherit: 'selectMonth'},
+        {inherit: 'selectYear'}
+    ]);
+
+    return API.script;
+});
