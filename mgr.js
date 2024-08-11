@@ -20,11 +20,11 @@ define(['managerAPI',
     let whiteLabels = [];
 
     if (raceSet == 'a') {
-        blackLabels.push('African Americans');
-        whiteLabels.push('European Americans');
+        blackLabels.push('Kadın');
+        whiteLabels.push('Erkek');
     } else {
-        blackLabels.push('Black people');
-        whiteLabels.push('White people');
+        blackLabels.push('Kadın');
+        whiteLabels.push('Erkek');
     }
 
     API.addGlobal({
@@ -61,7 +61,7 @@ define(['managerAPI',
     API.addTasksSet({
         instructions: [{
             type: 'message',
-            buttonText: 'Continue'
+            buttonText: 'Devam et'
         }],
 
         intro: [{
@@ -71,7 +71,15 @@ define(['managerAPI',
             title: 'Intro',
             header: 'Welcome'
         }],
-
+		
+		demografics: [{
+            inherit: 'instructions',
+            name: 'demografics',
+            templateUrl: 'demografics.jst',
+            title: 'Demografik Bilgiler',
+            header: 'Demografik Bilgiler'
+		 }],
+		 
         raceiat_instructions: [{
             inherit: 'instructions',
             name: 'raceiat_instructions',
