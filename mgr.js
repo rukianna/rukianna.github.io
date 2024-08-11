@@ -163,6 +163,8 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
+		{inherit: 'demografics'}, // Demografik Bilgiler
+		{
         {
             mixer:'random',
             data:[
