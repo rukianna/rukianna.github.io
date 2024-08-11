@@ -1,9 +1,91 @@
-<div class="panel panel-info" style="margin-top:1em">
-		<div class="panel-heading">
-			<h1 class="panel-title" style="font-size:2em">
-				Demografik Bilgiler
-			</h1>
-		</div>
-</div>
-<div class="panel-body">
-	<p class='lead'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Tarihi Seçimi</title>
+    <style>
+        .container {
+            display: none;
+            margin: 20px;
+        }
+        .container.active {
+            display: block;
+        }
+        .button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        select {
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Birinci Sayfa: Doğum Ayı Seçimi -->
+    <div id="page1" class="container active">
+        <h2>Doğum Ayınızı Seçin</h2>
+        <div id="months">
+            <button class="button" onclick="selectMonth('Ocak')">Ocak</button>
+            <button class="button" onclick="selectMonth('Şubat')">Şubat</button>
+            <button class="button" onclick="selectMonth('Mart')">Mart</button>
+            <button class="button" onclick="selectMonth('Nisan')">Nisan</button>
+            <button class="button" onclick="selectMonth('Mayıs')">Mayıs</button>
+            <button class="button" onclick="selectMonth('Haziran')">Haziran</button>
+            <button class="button" onclick="selectMonth('Temmuz')">Temmuz</button>
+            <button class="button" onclick="selectMonth('Ağustos')">Ağustos</button>
+            <button class="button" onclick="selectMonth('Eylül')">Eylül</button>
+            <button class="button" onclick="selectMonth('Ekim')">Ekim</button>
+            <button class="button" onclick="selectMonth('Kasım')">Kasım</button>
+            <button class="button" onclick="selectMonth('Aralık')">Aralık</button>
+        </div>
+    </div>
+
+    <!-- İkinci Sayfa: Doğum Yılı Seçimi -->
+    <div id="page2" class="container">
+        <h2>Doğum Yılınızı Seçin</h2>
+        <select id="yearSelect"></select>
+        <br>
+        <button class="button" onclick="submitForm()">Tamamla</button>
+    </div>
+
+    <script>
+        // Doğum ayı seçimi ve sayfa geçişi
+        function selectMonth(month) {
+            console.log("Seçilen Ay: " + month);
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
+
+        // Doğum yıllarını doldurma
+        window.onload = function() {
+            const yearSelect = document.getElementById('yearSelect');
+            for (let year = 2005; year >= 1910; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.text = year;
+                yearSelect.appendChild(option);
+            }
+        };
+
+        // Formu gönderme (işlevselliği örnek olarak eklenmiştir)
+        function submitForm() {
+            const selectedYear = document.getElementById('yearSelect').value;
+            console.log("Seçilen Yıl: " + selectedYear);
+            alert("Doğum tarihiniz: " + selectedYear);
+        }
+    </script>
+</body>
+</html>
