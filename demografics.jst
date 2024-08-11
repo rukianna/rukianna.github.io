@@ -1,21 +1,4 @@
-define(['managerAPI'], function(Manager){
-    var API = new Manager();
-
-    API.addSettings('skip', true);
-
-    // Global variables
-    API.addGlobal({
-        selectedMonth: '',
-        selectedYear: '',
-        selectedGender: '',
-        educationLevel: '',
-        relationshipDuration: '',
-        genderRolesView: '',
-        relationshipEquality: '',
-        beliefInEquality: ''
-    });
-
-    // Task sets for each page
+// Task sets for each page
 
     // Page 1: Select Birth Month
     API.addTasksSet({
