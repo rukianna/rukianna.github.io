@@ -1,58 +1,175 @@
-<div class="panel panel-info" style="margin-top:1em">
-    <div class="panel-heading">
-        <h1 class="panel-title" style="font-size:2em">
-            Demografik Bilgiler
-        </h1>
-    </div>
-</div>
+define(['managerAPI'], function(Manager){
+    var API = new Manager();
 
-<div class="panel-body">
-    <p class='lead'>
-        Lütfen aşağıdaki bilgileri doldurunuz:<br/><br/>
-    </p>
-    
-    <form id="demographicsForm">
-        <div class="form-group">
-            <label for="age">Yaş:</label>
-            <input type="number" class="form-control" id="age" name="age" placeholder="Yaşınızı girin" required>
-        </div>
+    API.addSettings('skip', true);
 
-        <div class="form-group">
-            <label for="gender">Cinsiyet:</label>
-            <select class="form-control" id="gender" name="gender" required>
-                <option value="">Seçiniz</option>
-                <option value="male">Erkek</option>
-                <option value="female">Kadın</option>
-                <option value="other">Diğer</option>
-            </select>
-        </div>
+    // Global variables
+    API.addGlobal({
+        selectedMonth: '',
+        selectedYear: '',
+        selectedGender: '',
+        educationLevel: '',
+        relationshipDuration: '',
+        genderRolesView: '',
+        relationshipEquality: '',
+        beliefInEquality: ''
+    });
 
-        <div class="form-group">
-            <label for="education">Eğitim Durumu:</label>
-            <select class="form-control" id="education" name="education" required>
-                <option value="">Seçiniz</option>
-                <option value="highschool">Lise</option>
-                <option value="bachelor">Lisans</option>
-                <option value="master">Yüksek Lisans</option>
-                <option value="doctorate">Doktora</option>
-            </select>
-        </div>
+    // Task sets for each page
 
-        <div class="form-group">
-            <label for="income">Aylık Gelir:</label>
-            <select class="form-control" id="income" name="income" required>
-                <option value="">Seçiniz</option>
-                <option value="<1000">&lt; 1000 TL</option>
-                <option value="1000-3000">1000 - 3000 TL</option>
-                <option value="3000-5000">3000 - 5000 TL</option>
-                <option value=">5000">&gt; 5000 TL</option>
-            </select>
-        </div>
+    // Page 1: Select Birth Month
+    API.addTasksSet({
+        selectMonth: [{
+            type: 'message',
+            name: 'selectMonth',
+            template: '<h2>Doğum Ayınız</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Ocak\')">Ocak</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Şubat\')">Şubat</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Mart\')">Mart</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Nisan\')">Nisan</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Mayıs\')">Mayıs</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Haziran\')">Haziran</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Temmuz\')">Temmuz</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Ağustos\')">Ağustos</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Eylül\')">Eylül</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Ekim\')">Ekim</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Kasım\')">Kasım</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectMonth(\'Aralık\')">Aralık</button>'}},
+            ]
+        }]
+    });
 
-        <div class="text-center proceed" style="margin: 30px auto 10px;">
-            <button pi-message-done type="submit" class="btn btn-primary">
-                Devam Et
-            </button>
-        </div>
-    </form>
-</div>
+    // Page 2: Select Birth Year
+    API.addTasksSet({
+        selectYear: [{
+            type: 'quest',
+            name: 'selectYear',
+            layout: [
+                {media: {inlineHtml: '<h2>Doğum Yılınız</h2>'}},
+                {
+                    media: {
+                        inlineHtml: '<select id="yearSelect"></select>',
+                        inlineScript: function(API, global) {
+                            const yearSelect = document.getElementById('yearSelect');
+                            for (let year = 2005; year >= 1910; year--) {
+                                const option = document.createElement('option');
+                                option.value = year;
+                                option.text = year;
+                                yearSelect.appendChild(option);
+                            }
+                            yearSelect.addEventListener('change', function() {
+                                global.selectedYear = yearSelect.value;
+                            });
+                        }
+                    }
+                }
+            ]
+        }]
+    });
+
+    // Page 3: Select Gender
+    API.addTasksSet({
+        selectGender: [{
+            type: 'message',
+            name: 'selectGender',
+            template: '<h2>Cinsiyetiniz</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGender(\'Kadın\')">Kadın</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGender(\'Erkek\')">Erkek</button>'}}
+            ]
+        }]
+    });
+
+    // Page 4: Select Education Level
+    API.addTasksSet({
+        selectEducation: [{
+            type: 'message',
+            name: 'selectEducation',
+            template: '<h2>Eğitim Düzeyiniz</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectEducation(\'Lisans\')">Lisans</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectEducation(\'Lisans Üstü\')">Lisans Üstü</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectEducation(\'Doktora\')">Doktora</button>'}}
+            ]
+        }]
+    });
+
+    // Page 5: Select Relationship Duration
+    API.addTasksSet({
+        selectRelationshipDuration: [{
+            type: 'message',
+            name: 'selectRelationshipDuration',
+            template: '<h2>İlişki Süresiniz</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipDuration(\'0-6 Ay\')">0-6 Ay</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipDuration(\'6 Ay - 1 Sene\')">6 Ay - 1 Sene</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipDuration(\'1-2 Yıl\')">1-2 Yıl</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipDuration(\'3-5 Yıl\')">3-5 Yıl</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipDuration(\'6+ Yıl\')">6+ Yıl</button>'}}
+            ]
+        }]
+    });
+
+    // Page 6: Gender Roles and Attitudes
+    API.addTasksSet({
+        genderRolesView: [{
+            type: 'message',
+            name: 'genderRolesView',
+            template: '<h2>Cinsiyet rollerine bakışınızı ve toplumsal cinsiyete yönelik tutumunuzu nasıl tanımlarsınız</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGenderRolesView(\'Biraz Eşitlikçi\')">Biraz Eşitlikçi</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGenderRolesView(\'Biraz Muhafazakar\')">Biraz Muhafazakar</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGenderRolesView(\'Tamamen Eşitlikçi\')">Tamamen Eşitlikçi</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGenderRolesView(\'Tamamen Muhafazakar\')">Tamamen Muhafazakar</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectGenderRolesView(\'Bilmiyorum\')">Bilmiyorum</button>'}}
+            ]
+        }]
+    });
+
+    // Page 7: Relationship with Partner
+    API.addTasksSet({
+        relationshipEquality: [{
+            type: 'message',
+            name: 'relationshipEquality',
+            template: '<h2>İlişkinizi Nasıl Tanımlarsınız?</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipEquality(\'Tamamen Eşitlikçi\')">Tamamen Eşitlikçi</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipEquality(\'Eşitlikçi Değil\')">Eşitlikçi Değil</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipEquality(\'Biraz Eşitlikçi\')">Biraz Eşitlikçi</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipEquality(\'Biraz Eşitlikçi Değil\')">Biraz Eşitlikçi Değil</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectRelationshipEquality(\'Tamamen Eşitsiz\')">Tamamen Eşitsiz</button>'}}
+            ]
+        }]
+    });
+
+    // Page 8: Belief in Gender Equality
+    API.addTasksSet({
+        beliefInEquality: [{
+            type: 'message',
+            name: 'beliefInEquality',
+            template: '<h2>Kadın Erkek Eşitliğine Ne Kadar İnanıyorsunuz?</h2>',
+            layout: [
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectBeliefInEquality(\'Biraz İnanıyorum\')">Tamamen İnanıyorum</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectBeliefInEquality(\'Tamamen İnanıyorum\')">Biraz İnanıyorum</button>'}},
+				{media: {inlineHtml: '<button class="btn btn-primary" onclick="selectBeliefInEquality(\'Tamamen İnanmıyorum\')">Tamamen İnanmıyorum</button>'}},
+                {media: {inlineHtml: '<button class="btn btn-primary" onclick="selectBeliefInEquality(\'Biraz İnanmıyorum\')">Biraz İnanmıyorum</button>'}}
+            ]
+        }]
+    });
+
+    // Sequence of tasks
+    API.addSequence([
+        {inherit: 'selectMonth'},
+        {inherit: 'selectYear'},
+        {inherit: 'selectGender'},
+        {inherit: 'selectEducation'},
+        {inherit: 'selectRelationshipDuration'},
+        {inherit: 'genderRolesView'},
+        {inherit: 'relationshipEquality'},
+        {inherit: 'beliefInEquality'}
+    ]);
+
+    return API.script;
+});
+
