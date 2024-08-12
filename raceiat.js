@@ -40,9 +40,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },
         attribute1 : {
-            name : 'Bad words',
+            name : 'Aile',
             title : {
-                media : {word : 'Kariyer'},
+                media : {word : 'Aile'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
@@ -58,9 +58,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         attribute2 : {
-            name : 'Good words',
+            name : 'Kariyer',
             title : {
-                media : {word : 'Aile'},
+                media : {word : 'Kariyer'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
@@ -70,7 +70,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: global.posWords[2]},
                 {word: global.posWords[3]},
                 {word: global.posWords[4]},
-                {word: global.posWords[5]} 
+                {word: global.posWords[5]},
+ 
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
