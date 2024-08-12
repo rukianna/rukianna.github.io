@@ -78,8 +78,15 @@ define(['managerAPI',
             templateUrl: 'demografics.jst',
             title: 'Demografik Bilgiler',
             header: 'Demografik Bilgiler'
-		 }],
-		 
+	}],
+	    	dogumyili: [{
+            inherit: 'instructions',
+            name: 'demografics',
+            templateUrl: 'dogumyili.jst',
+            title: 'Demografik Bilgiler',
+            header: 'Demografik Bilgiler'
+	}],
+	    
         raceiat_instructions: [{
             inherit: 'instructions',
             name: 'raceiat_instructions',
@@ -164,7 +171,7 @@ define(['managerAPI',
         
         {inherit: 'intro'},
 		{inherit: 'demografics'}, // Demografik Bilgiler
-			
+	        {inherit: 'dogumyili'}, // Doğum yılı	
         {
             mixer:'random',
             data:[
