@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Decline' : 'Decline to Answer', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 7'
+        progressBar:  'Page <%= pagesMeta.number %> out of 8'
     });
 	
     /**
@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 7 %>',
+        help: '<%= pagesMeta.number < 8 %>',
         helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
@@ -104,33 +104,61 @@ define(['questAPI'], function(Quest){
     });
 
     /**
-	* Specific questions
-	*/	
-    API.addQuestionsSet('attributes7',{
-        inherit : 'basicSelect',
-        name: 'attributes7',
-        stem: 'Sizi en iyi tanımlayan ifade hangisidir?',
+	* Specific Questions (Relationship Duration, Gender Roles, Relationship with Partner, Belief in Gender Equality)
+	*/
+    // Relationship Duration
+    API.addQuestionsSet('relationshipDuration',{
+        inherit: 'basicSelect',
+        name: 'relationshipDuration',
+        stem: 'İlişki süreniz nedir?',
         answers: [
-            {text:'I strongly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:7},
-            {text:'I moderately prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:6},
-            {text:'I slightly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:5},
-            {text:'I like <%= global.whiteLabels %> and <%= global.blackLabels %> equally.',value:4},
-            {text:'I slightly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:3},
-            {text:'I moderately prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:2},
-            {text:'I strongly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:1}
+            {text: '0-6 Ay', value: '0-6 Ay'},
+            {text: '6 Ay - 1 Sene', value: '6 Ay - 1 Sene'},
+            {text: '1-2 Yıl', value: '1-2 Yıl'},
+            {text: '3-5 Yıl', value: '3-5 Yıl'},
+            {text: '6+ Yıl', value: '6+ Yıl'}
         ]
     });
-	
-    API.addQuestionsSet('thermBlack',{
-        inherit : 'therm',
-        name: 'Tblack_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.blackLabels %></b>?'
+
+    // Gender Roles and Attitudes
+    API.addQuestionsSet('genderRolesView',{
+        inherit: 'basicSelect',
+        name: 'genderRolesView',
+        stem: 'Cinsiyet rollerine bakışınızı ve toplumsal cinsiyete yönelik tutumunuzu nasıl tanımlarsınız?',
+        answers: [
+            {text: 'Biraz Eşitlikçi', value: 'Biraz Eşitlikçi'},
+            {text: 'Biraz Muhafazakar', value: 'Biraz Muhafazakar'},
+            {text: 'Tamamen Eşitlikçi', value: 'Tamamen Eşitlikçi'},
+            {text: 'Tamamen Muhafazakar', value: 'Tamamen Muhafazakar'},
+            {text: 'Bilmiyorum', value: 'Bilmiyorum'}
+        ]
     });
 
-    API.addQuestionsSet('thermWhite',{
-        inherit : 'therm',
-        name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.whiteLabels %></b>?'
+    // Relationship with Partner
+    API.addQuestionsSet('relationshipEquality',{
+        inherit: 'basicSelect',
+        name: 'relationshipEquality',
+        stem: 'İlişkinizi nasıl tanımlarsınız?',
+        answers: [
+            {text: 'Tamamen Eşitlikçi', value: 'Tamamen Eşitlikçi'},
+            {text: 'Eşitlikçi Değil', value: 'Eşitlikçi Değil'},
+            {text: 'Biraz Eşitlikçi', value: 'Biraz Eşitlikçi'},
+            {text: 'Biraz Eşitlikçi Değil', value: 'Biraz Eşitlikçi Değil'},
+            {text: 'Tamamen Eşitsiz', value: 'Tamamen Eşitsiz'}
+        ]
+    });
+
+    // Belief in Gender Equality
+    API.addQuestionsSet('beliefInEquality',{
+        inherit: 'basicSelect',
+        name: 'beliefInEquality',
+        stem: 'Kadın erkek eşitliğine ne kadar inanıyorsunuz?',
+        answers: [
+            {text: 'Tamamen İnanıyorum', value: 'Tamamen İnanıyorum'},
+            {text: 'Biraz İnanıyorum', value: 'Biraz İnanıyorum'},
+            {text: 'Tamamen İnanmıyorum', value: 'Tamamen İnanmıyorum'},
+            {text: 'Biraz İnanmıyorum', value: 'Biraz İnanmıyorum'}
+        ]
     });
 
     /**
@@ -141,31 +169,11 @@ define(['questAPI'], function(Quest){
         {inherit: 'basicPage', questions: {inherit: 'birthYear'}},
         {inherit: 'basicPage', questions: {inherit: 'gender'}},
         {inherit: 'basicPage', questions: {inherit: 'educationLevel'}},
-        {
-            mixer : 'random', 
-            data : [
-                {
-                    mixer : 'random', 
-                    wrapper:true, 
-                    data : [
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
-                        },
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
-                        }
-                    ]
-                },
-                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
-                }
-            ]
-        }
+        {inherit: 'basicPage', questions: {inherit: 'relationshipDuration'}},
+        {inherit: 'basicPage', questions: {inherit: 'genderRolesView'}},
+        {inherit: 'basicPage', questions: {inherit: 'relationshipEquality'}},
+        {inherit: 'basicPage', questions: {inherit: 'beliefInEquality'}}
     ]);
 
     return API.script;
 });
-
