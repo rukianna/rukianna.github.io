@@ -142,7 +142,7 @@ define(['managerAPI',
         
         {inherit: 'intro'},	
         {
-            mixer:'wrapper',
+            mixer: 'wrapper',
             data:[
                 {inherit: 'explicits'},
 
