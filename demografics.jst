@@ -1,93 +1,82 @@
-<h2>Doğum Ayınız</h2>
-
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ocak')">
-        Ocak
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Şubat')">
-        Şubat
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Mart')">
-        Mart
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Nisan')">
-        Nisan
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Mayıs')">
-        Mayıs
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Haziran')">
-        Haziran
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Temmuz')">
-        Temmuz
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ağustos')">
-        Ağustos
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Eylül')">
-        Eylül
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ekim')">
-        Ekim
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Kasım')">
-        Kasım
-    </button>
-</div>
-<div class="text-center proceed" style="margin: 30px auto 10px;">
-    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Aralık')">
-        Aralık
-    </button>
+<div class="panel panel-info" style="margin-top:1em">
+    <div class="panel-heading">
+        <h1 class="panel-title" style="font-size:2em">
+            Demografik Bilgiler
+        </h1>
+    </div>
 </div>
 
-    // Page 2: Select Birth Year
-    API.addTasksSet({
-        selectYear: [{
-            type: 'quest',
-            name: 'selectYear',
-            layout: [
-                {media: {inlineHtml: '<h2>Doğum Yılınız</h2>'}},
-                {
-                    media: {
-                        inlineHtml: '<select id="yearSelect"></select>',
-                        inlineScript: function(API, global) {
-                            const yearSelect = document.getElementById('yearSelect');
-                            for (let year = 2005; year >= 1910; year--) {
-                                const option = document.createElement('option');
-                                option.value = year;
-                                option.text = year;
-                                yearSelect.appendChild(option);
-                            }
-                            yearSelect.addEventListener('change', function() {
-                                global.selectedYear = yearSelect.value;
-                            });
-                        }
-                    }
-                }
-            ]
-        }]
+	<h2>Doğum Ayınız</h2>
+	
+	<div class="text-center proceed" style="margin: 30px auto 10px;">
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ocak')" style="display: inline-block; margin: 5px;">
+	        Ocak
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Şubat')" style="display: inline-block; margin: 5px;">
+	        Şubat
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Mart')" style="display: inline-block; margin: 5px;">
+	        Mart
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Nisan')" style="display: inline-block; margin: 5px;">
+	        Nisan
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Mayıs')" style="display: inline-block; margin: 5px;">
+	        Mayıs
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Haziran')" style="display: inline-block; margin: 5px;">
+	        Haziran
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Temmuz')" style="display: inline-block; margin: 5px;">
+	        Temmuz
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ağustos')" style="display: inline-block; margin: 5px;">
+	        Ağustos
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Eylül')" style="display: inline-block; margin: 5px;">
+	        Eylül
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Ekim')" style="display: inline-block; margin: 5px;">
+	        Ekim
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Kasım')" style="display: inline-block; margin: 5px;">
+	        Kasım
+	    </button>
+	    <button pi-message-done type="button" class="btn btn-primary" onclick="selectMonth('Aralık')" style="display: inline-block; margin: 5px;">
+	        Aralık
+	    </button>
+	</div>
+
+<!-- Sayfa 2: Doğum Yılı Seçimi -->
+<div class="panel panel-info" style="margin-top:1em">
+    <div class="panel-heading">
+        <h1 class="panel-title" style="font-size:2em">
+            Demografik Bilgiler
+        </h1>
+    </div>
+</div>
+
+<h2>Doğum Yılınız</h2>
+
+<div class="text-center proceed" style="margin: 30px auto 10px;">
+    <select id="yearSelect" class="form-control" style="display: inline-block; width: auto; margin: 5px;">
+    </select>
+</div>
+
+<script>
+    const yearSelect = document.getElementById('yearSelect');
+    for (let year = 2005; year >= 1910; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.text = year;
+        yearSelect.appendChild(option);
+    }
+
+    yearSelect.addEventListener('change', function() {
+        global.selectedYear = yearSelect.value;
     });
+</script>
+
 
     // Page 3: Select Gender
     API.addTasksSet({
