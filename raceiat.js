@@ -11,7 +11,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 height : 4 //Used to position the "Or" in the combined block.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'stdeneme.jpg'},
+                {image: 'woman1.jpg'},
                 {image: 'bm2_nc.jpg'},
                 {image: 'bm3_nc.jpg'},
                 {image: 'bf1_nc.jpg'},
@@ -29,7 +29,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 height : 4 //Used to position the "Or" in the combined block.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'wm1_nc.jpg'},
+                {image: 'man1.jpg'},
                 {image: 'wm2_nc.jpg'},
                 {image: 'wm3_nc.jpg'},
                 {image: 'wf1_nc.jpg'},
