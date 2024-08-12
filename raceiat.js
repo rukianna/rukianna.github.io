@@ -52,7 +52,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: global.negWords[2]},
                 {word: global.negWords[3]},
                 {word: global.negWords[4]},
-                {word: global.negWords[5]}
+                {word: global.negWords[5]},
+				{word: global.posWords[6]}
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
@@ -70,7 +71,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: global.posWords[2]},
                 {word: global.posWords[3]},
                 {word: global.posWords[4]},
-                {word: global.posWords[5]}
+                {word: global.posWords[5]},
+                {word: global.posWords[6]}    
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
