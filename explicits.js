@@ -7,9 +7,9 @@ define(['questAPI'], function(Quest){
 	*/
     API.addPagesSet('basicPage',{
         noSubmit:false, // Change to true if you don't want to show the submit button.
-        header: 'Questionnaire',
+        header: 'Demografik Bilgiler',
         decline: true,
-        declineText: isTouch ? 'Decline' : 'Decline to Answer', 
+        declineText: isTouch ? 'Geç' : 'Soruyu Geç', 
         autoFocus:true, 
         progressBar:  'Page <%= pagesMeta.number %> out of 8'
     });
@@ -22,8 +22,8 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Please select an answer, or click \'Decline\'' 
-                : 'Please select an answer, or click \'Decline to Answer\''
+                ? 'Please select an answer, or click \'Geç\'' 
+                : 'Please select an answer, or click \'Soruyu Geç\''
         },
         autoSubmit:'true',
         numericValues:'true',
