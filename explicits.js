@@ -6,12 +6,12 @@ define(['questAPI'], function(Quest){
 	* Page prototype
 	*/
     API.addPagesSet('basicPage',{
-        noSubmit:false, //Change to true if you don't want to show the submit button.
+        noSubmit:false, // Change to true if you don't want to show the submit button.
         header: 'Questionnaire',
         decline: true,
         declineText: isTouch ? 'Decline' : 'Decline to Answer', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 3'
+        progressBar:  'Page <%= pagesMeta.number %> out of 7'
     });
 	
     /**
@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
+        help: '<%= pagesMeta.number < 7 %>',
         helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
@@ -35,33 +35,76 @@ define(['questAPI'], function(Quest){
         inherit :'basicQ',
         type: 'selectOne'
     });
-	
+
     API.addQuestionsSet('basicDropdown',{
         inherit :'basicQ',
         type : 'dropdown',
         autoSubmit:false
     });
-	
-    API.addQuestionsSet('therm',{
+
+    /**
+	* Demographic Questions
+	*/
+    // Birth Month
+    API.addQuestionsSet('birthMonth',{
         inherit: 'basicSelect',
+        name: 'birthMonth',
+        stem: 'Doğum ayınız nedir?',
         answers: [
-            {text:'10 - Extremely warm', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
+            {text: 'Ocak', value: 'Ocak'},
+            {text: 'Şubat', value: 'Şubat'},
+            {text: 'Mart', value: 'Mart'},
+            {text: 'Nisan', value: 'Nisan'},
+            {text: 'Mayıs', value: 'Mayıs'},
+            {text: 'Haziran', value: 'Haziran'},
+            {text: 'Temmuz', value: 'Temmuz'},
+            {text: 'Ağustos', value: 'Ağustos'},
+            {text: 'Eylül', value: 'Eylül'},
+            {text: 'Ekim', value: 'Ekim'},
+            {text: 'Kasım', value: 'Kasım'},
+            {text: 'Aralık', value: 'Aralık'}
         ]
     });
 
-	
+    // Birth Year
+    API.addQuestionsSet('birthYear',{
+        inherit: 'basicDropdown',
+        name: 'birthYear',
+        stem: 'Doğum yılınız nedir?',
+        answers: (function(){
+            let years = [];
+            for (let i = 2005; i >= 1910; i--) {
+                years.push({text: i.toString(), value: i});
+            }
+            return years;
+        })()
+    });
+
+    // Gender
+    API.addQuestionsSet('gender',{
+        inherit: 'basicSelect',
+        name: 'gender',
+        stem: 'Cinsiyetiniz nedir?',
+        answers: [
+            {text: 'Kadın', value: 'Kadın'},
+            {text: 'Erkek', value: 'Erkek'}
+        ]
+    });
+
+    // Education Level
+    API.addQuestionsSet('educationLevel',{
+        inherit: 'basicSelect',
+        name: 'educationLevel',
+        stem: 'Eğitim durumunuz nedir?',
+        answers: [
+            {text: 'Lisans', value: 'Lisans'},
+            {text: 'Lisansüstü', value: 'Lisansüstü'},
+            {text: 'Doktora', value: 'Doktora'}
+        ]
+    });
+
     /**
-	*Specific questions
+	* Specific questions
 	*/	
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
@@ -90,7 +133,14 @@ define(['questAPI'], function(Quest){
         stem: 'How warm or cold do you feel towards <b><%= global.whiteLabels %></b>?'
     });
 
+    /**
+	* Sequence
+	*/
     API.addSequence([
+        {inherit: 'basicPage', questions: {inherit: 'birthMonth'}},
+        {inherit: 'basicPage', questions: {inherit: 'birthYear'}},
+        {inherit: 'basicPage', questions: {inherit: 'gender'}},
+        {inherit: 'basicPage', questions: {inherit: 'educationLevel'}},
         {
             mixer : 'random', 
             data : [
@@ -118,3 +168,4 @@ define(['questAPI'], function(Quest){
 
     return API.script;
 });
+

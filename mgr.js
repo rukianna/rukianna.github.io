@@ -58,33 +58,18 @@ define(['managerAPI',
             header: 'Welcome'
         }],
 		
-		demografics: [{
-            inherit: 'instructions',
-            name: 'demografics',
-            templateUrl: 'demografics.jst',
-            title: 'Demografik Bilgiler',
-            header: 'Demografik Bilgiler'
-	}],
-	    	dogumyili: [{
-            inherit: 'instructions',
-            name: 'demografics',
-            templateUrl: 'dogumyili.jst',
-            title: 'Demografik Bilgiler',
-            header: 'Demografik Bilgiler'
-	}],
-	    
+		explicits: [{
+            type: 'quest',
+            name: 'explicits',
+            scriptUrl: 'explicits.js'
+		}],
+	    	
         raceiat_instructions: [{
             inherit: 'instructions',
             name: 'raceiat_instructions',
             templateUrl: 'raceiat_instructions.jst',
             title: 'IAT Instructions',
             header: 'Implicit Association Test'
-        }],
-
-        explicits: [{
-            type: 'quest',
-            name: 'explicits',
-            scriptUrl: 'explicits.js'
         }],
 
         raceiat: [{
@@ -155,9 +140,7 @@ define(['managerAPI',
         },
         
         
-        {inherit: 'intro'},
-		{inherit: 'demografics'}, // Demografik Bilgiler
-	        {inherit: 'dogumyili'}, // Doğum yılı	
+        {inherit: 'intro'},	
         {
             mixer:'random',
             data:[
