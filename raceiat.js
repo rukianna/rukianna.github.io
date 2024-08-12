@@ -80,25 +80,5 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             image : global.baseURL
         },
         isTouch : global.$isTouch
-    
-
-		leftKeyText: 'E tuşuna basın',
-        rightKeyText: 'I tuşuna basın',
-        keysCss: {
-            'font-size': '0.8em',
-            'font-family': 'courier',
-            color: '#000000'
-        },
-        orText: 'veya',
-        orCss: {
-            'font-size': '1.8em',
-            color: '#000000'
-        },
-        instWidth: 99, // Talimatların genişliği
-        finalText: 'Devam etmek için boşluk tuşuna basın',
-        finalTouchText: 'Devam etmek için yeşil alana dokunun',
-        touchMaxStimulusWidth: '50%',
-        touchMaxStimulusHeight: '50%',
-        bottomTouchCss: {} // Alt dokunma alanının CSS değerlerini buraya ekleyebilirsiniz.
     });
 });
