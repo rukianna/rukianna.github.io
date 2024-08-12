@@ -20,11 +20,11 @@ define(['managerAPI',
     let whiteLabels = [];
 
     if (raceSet == 'a') {
-        blackLabels.push('Aile');
-        whiteLabels.push('Kariyer');
+        blackLabels.push('Kadın');
+        whiteLabels.push('Erkek');
     } else {
-        blackLabels.push('black');
-        whiteLabels.push('white');
+        blackLabels.push('Kadın');
+        whiteLabels.push('Erkek');
     }
 
     API.addGlobal({
