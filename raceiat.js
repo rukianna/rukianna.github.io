@@ -12,11 +12,11 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
                 {image: 'woman1.jpg'},
-                {image: 'bm2_nc.jpg'},
-                {image: 'bm3_nc.jpg'},
-                {image: 'bf1_nc.jpg'},
-                {image: 'bf2_nc.jpg'},                 
-                {image: 'bf3_nc.jpg'}     
+                {image: 'woman2.jpg'},
+                {image: 'woman3.jpg'},
+                {image: 'woman4.jpg'},
+                {image: 'woman5.jpg'},                 
+                {image: 'woman6.jpg'}     
             ],
             //Stimulus css (style)
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
@@ -30,11 +30,11 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
                 {image: 'man1.jpg'},
-                {image: 'wm2_nc.jpg'},
-                {image: 'wm3_nc.jpg'},
-                {image: 'wf1_nc.jpg'},
-                {image: 'wf2_nc.jpg'},
-                {image: 'wf3_nc.jpg'}
+                {image: 'man2.jpg'},
+                {image: 'man3.jpg'},
+                {image: 'man4.jpg'},
+                {image: 'man5.jpg'},
+                {image: 'man6.jpg'}
             ],
             //Stimulus css (style)
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
