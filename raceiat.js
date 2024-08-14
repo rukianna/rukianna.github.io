@@ -3,7 +3,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
     let global = API.getGlobal();
 
     return iatExtension({
-		leftKeyText : 'Press "E" for',
+		leftKeyText : 'Press "E" for AAAAA',
         category1 : {
             name : global.blackLabels, //Will appear in the data.
             title : {
