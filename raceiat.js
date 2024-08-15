@@ -3,7 +3,36 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
     let global = API.getGlobal();
 
     return iatExtension({
-		leftKeyText : 'Press "E" for AAAAA',
+		leftKeyText : '"E" harfine basın',
+		rightKeyText : 'I harfine basın', 
+		finalText : 'Bir sonraki bölüme geçmek için boşluk tuşuna basın.', 
+		finalTouchText : 'Bir sonraki bölüme geçmek için alttaki yeşil alana dokunun.',
+		instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
+				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+				'Kategoriye ait olan öğeler için sol parmağınızı <b>E</b> tuşuna koyun. <font color="#0000ff">leftAttribute.</font>' +
+				'<br/>Kategoriye ait olan öğeler için sol parmağınızı <b>I</b> tuşuna koyun. <font color="#0000ff">rightAttribute</font>.<br/><br/>' +
+				'Eğer bir hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> belirecektir. ' +
+				'Devam etmek için diğer tuşa basın.<br/>' +
+				'<u>Mümkün olduğunca hızlı ve isabetli olmaya çalışın.<br/><br/></p>'+
+				'<p align="center"> Başlamaya hazır olduğunuzda <b> boşluk tuşuna</b> basın. </font></p></div>',
+			instAttributePracticeTouch: [
+				'<div>',
+					'<p align="center">',
+						'<u>Part blockNum of nBlocks</u>',
+					'</p>',
+					'<p align="left" style="margin-left:5px">',
+						'<br/>',
+						'Put a left finger over the the <b>left</b> green area for items that belong to the category <font color="#0000ff">leftAttribute</font>.<br/>',
+						'Put a right finger over the <b>right</b> green area for items that belong to the category <font color="#0000ff">rightAttribute</font>.<br/>',
+						'Items will appear one at a time.<br/>',
+						'<br/>',
+						'If you make a mistake, a red <font color="#ff0000"><b>X</b></font> will appear. Touch the other side. <u>Go as fast as you can</u> while being accurate.',
+					'</p>',
+					'<p align="center">Touch the <b>lower </b> green area to start.</p>',
+				'</div>'
+			].join('\n'),
+
         category1 : {
             name : global.blackLabels, //Will appear in the data.
             title : {
