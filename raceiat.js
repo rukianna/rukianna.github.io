@@ -141,14 +141,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		        '<p align="center">Başlamak için <b>alttaki </b> yeşil alana dokunun.</p>',
 		    '</div>'
 		].join('\n'),
-		
-		instThirdCombined : 'instFirstCombined', // Bu, üçüncü birleşik blok için instFirstCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
-		instFourthCombined : 'instSecondCombined', // Bu, dördüncü birleşik blok için instSecondCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
-		instThirdCombinedTouch : 'instFirstCombined', // Bu, üçüncü birleşik blok için instFirstCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
-		instFourthCombinedTouch : 'instSecondCombined', // Bu, dördüncü birleşik blok için instSecondCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
-		
-	};
-
+		},
         category1 : {
             name : global.blackLabels, //Will appear in the data.
             title : {
