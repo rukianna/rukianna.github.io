@@ -141,7 +141,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		        '<p align="center">Başlamak için <b>alttaki </b> yeşil alana dokunun.</p>',
 		    '</div>'
 		].join('\n'),
-		},
+	    
         category1 : {
             name : global.blackLabels, //Will appear in the data.
             title : {
