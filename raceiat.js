@@ -102,8 +102,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'Bu bölüm, önceki bölümle aynıdır.<br/>' +
-		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için.<br/>' +
-		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için.<br/>' +
+		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
+		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
 		'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
 		'<u>Mümkün olduğunca hızlı olun</u> ve doğru cevap vermeye çalışın.<br/><br/></p>' +
 		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
@@ -126,8 +126,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		'<font color="#000000"><u>blockNum / nBlocks </u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'<b>Dikkat edin, öğelerin pozisyonu değişti!</b><br/>' +
-		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için.<br/>' +
-		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için.<br/>' +
+		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
+		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
 		'<u>Mümkün olduğunca hızlı olun</u> doğru cevap vermeye çalışın.<br/><br/></p>' +
 		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instSwitchCategoriesTouch: [
