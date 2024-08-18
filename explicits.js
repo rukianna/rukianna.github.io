@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Geç' : 'Soruyu Geç', 
         autoFocus:true, 
-        progressBar:  ''Sayfa <%= pagesMeta.number %> / 8',
+        progressBar:  'Sayfa <%= pagesMeta.number %> / 8',
 	submitText: isTouch ? 'Gönder' : 'Gönder', // Yeni buton metnini burada belirleyin
     });
 	
