@@ -7,13 +7,19 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		rightKeyText : '"I" harfine basın', 
 		finalText : 'Sonraki bölüme geçmek için boşluk tuşuna basın', 
 		finalTouchText : 'Sonraki bölüme geçmek için alt yeşil alana dokunun',
-		
+		remindErrorText : '<p align="center" style="font-size:1em; font-family:arial; color:#000000">' +
+		'Eğer bir hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+		'Devam etmek için diğer tuşa basın.<p/>',
+		remindErrorTextTouch : '<p align="center" style="font-size:1.4em; font-family:arial; color:#000000">' +
+		'Eğer bir hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+		'Devam etmek için diğer tarafa dokunun.<p/>',
+		orText : 'ya da', 
 		touchMaxStimulusWidth : '50%', 
 		touchMaxStimulusHeight : '50%', 
 		bottomTouchCss: {}, //Alt dokunma alanının css'sini değiştirmek için herhangi bir CSS değeri ekleyin.
 		
 		instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'Soldaki kategoriye ait öğeler için <b>E</b> tuşuna basın. <font color="#0000ff">leftAttribute.</font>' +
 		'<br/>Sağdaki kategoriye ait öğeler için <b>I</b> tuşuna basın. <font color="#0000ff">rightAttribute</font>.<br/><br/>' +
@@ -24,7 +30,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instAttributePracticeTouch: [
 		    '<div>',
 		        '<p align="center">',
-		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		            '<u>blockNum / nBlocks</u>',
 		        '</p>',
 		        '<p align="left" style="margin-left:5px">',
 		            '<br/>',
@@ -39,7 +45,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 		
 		instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>blockNum/ nBlocks</u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'Soldaki kategoriye ait öğeler için <b>E</b> tuşuna basın. <font color="#336600">leftCategory</font>. ' +
 		'<br/>Sağdaki kategoriye ait öğeler için <b>I</b> tuşuna basın. <font color="#336600">rightCategory</font>.<br/>' +
@@ -51,7 +57,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instCategoriesPracticeTouch: [
 		    '<div>',
 		        '<p align="center">',
-		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		            '<u>blockNum / nBlocks</u>',
 		        '</p>',
 		        '<p align="left" style="margin-left:5px">',
 		            '<br/>',
@@ -66,7 +72,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 		
 		instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
 		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
@@ -78,7 +84,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instFirstCombinedTouch:[
 		    '<div>',
 		        '<p align="center">',
-		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		            '<u>blockNum / nBlocks</u>',
 		        '</p>',
 		        '<p align="left" style="margin-left:5px">',
 		            '<br/>',
@@ -93,7 +99,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 	    
 		instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'Bu bölüm, önceki bölümle aynıdır.<br/>' +
 		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için.<br/>' +
@@ -103,7 +109,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instSecondCombinedTouch:[
 		    '<div>',
-		        '<p align="center"><u>nBlocks içinde blockNum. bölüm</u></p>',
+		        '<p align="center"><u>blockNum / nBlocks</u></p>',
 		        '<br/>',
 		        '<br/>',
 		        '<p align="left" style="margin-left:5px">',
@@ -117,24 +123,24 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 		
 		instSwitchCategories : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum / nBlocks </u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'<b>Dikkat edin, etiketlerin pozisyonu değişti!</b><br/>' +
-		'Use the left finger on the <b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> için.<br/>' +
-		'Use the right finger on the <b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> için.<br/><br/>' +
+		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için.<br/>' +
+		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için.<br/>' +
 		'<u>Mümkün olduğunca hızlı olun</u> doğru cevap vermeye çalışın.<br/><br/></p>' +
 		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instSwitchCategoriesTouch: [
 		    '<div>',
 		        '<p align="center">',
-		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		            '<u>blockNum / nBlocks</u>',
 		        '</p>',
 		        '<p align="left" style="margin-left:5px">',
 		            '<br/>',
-		            'Dikkat edin, etiketlerin pozisyonu değişti!<br/>',
+		            'Lütfen dikkat edin, öğelerin pozisyonu değişti!<br/>',
 		            'Soldaki kategoriye ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#336600">leftCategory</font>.<br/>',
 		            'Sağdaki kategoriye ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#336600">rightCategory</font>.<br/>',
-		            'Öğeler birer birer görünecek.',
+		            'Öğeler birer birer görünecektir.',
 		            '<br/>',
 		            'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecek. Diğer tarafa dokunun. <u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.<br/>',
 		        '</p>',
