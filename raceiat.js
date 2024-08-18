@@ -5,33 +5,92 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
     return iatExtension({
 		leftKeyText : '"E" harfine basın',
 		rightKeyText : 'I harfine basın', 
-		finalText : 'Bir sonraki bölüme geçmek için boşluk tuşuna basın.', 
-		finalTouchText : 'Bir sonraki bölüme geçmek için alttaki yeşil alana dokunun.',
+		finalText : 'Sonraki göreve devam etmek için boşluk tuşuna basın', 
+		finalTouchText : 'Sonraki göreve devam etmek için alt yeşil alana dokunun',
+		
+		touchMaxStimulusWidth : '50%', 
+		touchMaxStimulusHeight : '50%', 
+		bottomTouchCss: {}, //Alt dokunma alanının css'sini değiştirmek için herhangi bir CSS değeri ekleyin.
+		
 		instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
-				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-				'Kategoriye ait olan öğeler için sol parmağınızı <b>E</b> tuşuna koyun. <font color="#0000ff">leftAttribute.</font>' +
-				'<br/>Kategoriye ait olan öğeler için sol parmağınızı <b>I</b> tuşuna koyun. <font color="#0000ff">rightAttribute</font>.<br/><br/>' +
-				'Eğer bir hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> belirecektir. ' +
-				'Devam etmek için diğer tuşa basın.<br/>' +
-				'<u>Mümkün olduğunca hızlı ve isabetli olmaya çalışın.<br/><br/></p>'+
-				'<p align="center"> Başlamaya hazır olduğunuzda <b> boşluk tuşuna</b> basın. </font></p></div>',
-			instAttributePracticeTouch: [
-				'<div>',
-					'<p align="center">',
-						'<u>Part blockNum of nBlocks</u>',
-					'</p>',
-					'<p align="left" style="margin-left:5px">',
-						'<br/>',
-						'Put a left finger over the the <b>left</b> green area for items that belong to the category <font color="#0000ff">leftAttribute</font>.<br/>',
-						'Put a right finger over the <b>right</b> green area for items that belong to the category <font color="#0000ff">rightAttribute</font>.<br/>',
-						'Items will appear one at a time.<br/>',
-						'<br/>',
-						'If you make a mistake, a red <font color="#ff0000"><b>X</b></font> will appear. Touch the other side. <u>Go as fast as you can</u> while being accurate.',
-					'</p>',
-					'<p align="center">Touch the <b>lower </b> green area to start.</p>',
-				'</div>'
-			].join('\n'),
+		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+		'Sol kategorisine ait öğeler için <b>E</b> tuşuna basın. <font color="#0000ff">leftAttribute.</font>' +
+		'<br/>Sağ kategorisine ait öğeler için <b>I</b> tuşuna basın. <font color="#0000ff">rightAttribute</font>.<br/><br/>' +
+		'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+		'Devam etmek için diğer tuşa basın.<br/>' +
+		'<u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.<br/><br/></p>'+
+		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
+		instAttributePracticeTouch: [
+		    '<div>',
+		        '<p align="center">',
+		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		        '</p>',
+		        '<p align="left" style="margin-left:5px">',
+		            '<br/>',
+		            'Sol kategorisine ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#0000ff">leftAttribute</font>.<br/>',
+		            'Sağ kategorisine ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#0000ff">rightAttribute</font>.<br/>',
+		            'Öğeler birer birer görünecek.<br/>',
+		            '<br/>',
+		            'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecek. Diğer tarafa dokunun. <u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.',
+		        '</p>',
+		        '<p align="center">Başlamak için <b>alt </b> yeşil alana dokunun.</p>',
+		    '</div>'
+		].join('\n'),
+		
+		instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+		'Sol kategorisine ait öğeler için <b>E</b> tuşuna basın. <font color="#336600">leftCategory</font>. ' +
+		'<br/>Sağ kategorisine ait öğeler için <b>I</b> tuşuna basın. <font color="#336600">rightCategory</font>.<br/>' +
+		'Öğeler birer birer görünecek.<br/><br/>' +
+		'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+		'Devam etmek için diğer tuşa basın.<br/>' +
+		'<u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.<br/><br/></p>'+
+		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
+		instCategoriesPracticeTouch: [
+		    '<div>',
+		        '<p align="center">',
+		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		        '</p>',
+		        '<p align="left" style="margin-left:5px">',
+		            '<br/>',
+		            'Sol kategorisine ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#336600">leftCategory</font>.<br/>',
+		            'Sağ kategorisine ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#336600">rightCategory</font>.<br/>',
+		            'Öğeler birer birer görünecek.<br/>',
+		            '<br/>',
+		            'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecek. Diğer tarafa dokunun. <u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.',
+		        '</p>',
+		        '<p align="center">Başlamak için <b>alt </b> yeşil alana dokunun.</p>',
+		    '</div>'
+		].join('\n'),
+		
+		instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
+		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için. <br/>' +
+		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için.<br/>' +
+		'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
+		'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+		'Devam etmek için diğer tuşa basın.<br/>' + 
+		'<u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.<br/><br/></p>' +
+		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
+		instFirstCombinedTouch:[
+		    '<div>',
+		        '<p align="center">',
+		            '<u>nBlocks içinde blockNum. bölüm</u>',
+		        '</p>',
+		        '<p align="left" style="margin-left:5px">',
+		            '<br/>',
+		            'Sol kategorisine ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#336600">leftCategory</font>.<br/>',
+		            'Sağ kategorisine ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#0000ff">rightAttribute</font>.<br/>',
+		            'Öğeler birer birer görünecek.<br/>',
+		            '<br/>',
+		            'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecek. Diğer tarafa dokunun. <u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.',
+		        '</p>',
+		        '<p align="center">Başlamak için <b>alt </b> yeşil alana dokunun.</p>',
+		    '</div>'
+		].join('\n'),
 
         category1 : {
             name : global.blackLabels, //Will appear in the data.
