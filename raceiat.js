@@ -68,8 +68,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
 		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-		'<b>E</b> tuşunu kullanarak <font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için. <br/>' +
-		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için.<br/>' +
+		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <br/>'<b>E</b> tuşunu kullanın.' +
+		'<b>I</b> tuşunu kullanarak <font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <br/>' +
 		'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
 		'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
 		'Devam etmek için diğer tuşa basın.<br/>' + 
