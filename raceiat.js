@@ -91,6 +91,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		        '<p align="center">Başlamak için <b>alttaki </b> yeşil alana dokunun.</p>',
 		    '</div>'
 		].join('\n'),
+	    
 		instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
 		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
@@ -146,15 +147,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instThirdCombinedTouch : 'instFirstCombined', // Bu, üçüncü birleşik blok için instFirstCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
 		instFourthCombinedTouch : 'instSecondCombined', // Bu, dördüncü birleşik blok için instSecondCombined özelliğini kullanacağımız anlamına gelir. Bunu değiştirebilirsiniz.
 		
-		fb_strong_Att1WithCatA_Att2WithCatB : 'Yanıtlarınız, categoryB üzerinde categoryA için güçlü bir otomatik tercih olduğunu önerdi.',
-		fb_moderate_Att1WithCatA_Att2WithCatB : 'Yanıtlarınız, categoryB üzerinde categoryA için orta derecede bir otomatik tercih olduğunu önerdi.',
-		fb_slight_Att1WithCatA_Att2WithCatB : 'Yanıtlarınız, categoryB üzerinde categoryA için hafif bir otomatik tercih olduğunu önerdi.',
-		fb_equal_CatAvsCatB : 'Yanıtlarınız, categoryA ile categoryB arasında otomatik bir tercih olmadığını önerdi.',
-		
-		// Geri bildirimdeki hata mesajları
-		manyErrors: 'Sonucu belirlemek için çok fazla hata yapıldı.',
-		tooFast: 'Sonucu belirlemek için çok fazla hızlı deneme yapıldı.',
-		notEnough: 'Sonucu belirlemek için yeterli deneme yapılmadı.'
+	};
 
         category1 : {
             name : global.blackLabels, //Will appear in the data.
