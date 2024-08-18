@@ -39,7 +39,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 		
 		instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>nBlocks içinde blockNum. bölüm </u><br/><br/></p>' +
+		'<font color="#000000"><u>blockNum/ nBlocks</u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'Soldaki kategoriye ait öğeler için <b>E</b> tuşuna basın. <font color="#336600">leftCategory</font>. ' +
 		'<br/>Sağdaki kategoriye ait öğeler için <b>I</b> tuşuna basın. <font color="#336600">rightCategory</font>.<br/>' +
@@ -55,9 +55,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		        '</p>',
 		        '<p align="left" style="margin-left:5px">',
 		            '<br/>',
-		            'Sol kategorisine ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#336600">leftCategory</font>.<br/>',
-		            'Sağ kategorisine ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#336600">rightCategory</font>.<br/>',
-		            'Öğeler birer birer görünecek.<br/>',
+		            'Soldaki kategoriye ait öğeler için <b>sol</b> yeşil alanın üzerine dokunun. <font color="#336600">leftCategory</font>.<br/>',
+		            'Sağdaki kategoriye ait öğeler için <b>sağ</b> yeşil alanın üzerine dokunun. <font color="#336600">rightCategory</font>.<br/>',
+		            'Öğeler birer birer görünecektir.<br/>',
 		            '<br/>',
 		            'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecek. Diğer tarafa dokunun. <u>Mümkün olduğunca hızlı olun</u> ve doğru olmaya çalışın.',
 		        '</p>',
