@@ -72,15 +72,15 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 		
 		instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
-		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
-		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
-		'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
-		'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
-		'Devam etmek için diğer tuşa basın.<br/>' + 
-		'<u>Mümkün olduğunca hızlı olun</u> ve doğru cevap vermeye çalışın.<br/><br/></p>' +
-		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
+			'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
+			'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
+			'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
+			'Hata yaparsanız, kırmızı bir <font color="#ff0000"><b>X</b></font> görünecektir. ' +
+			'Devam etmek için diğer tuşa basın.<br/>' + 
+			'<u>Mümkün olduğunca hızlı olun</u> ve doğru cevap vermeye çalışın.<br/><br/></p>' +
+			'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instFirstCombinedTouch:[
 		    '<div>',
 		        '<p align="center">',
@@ -99,14 +99,14 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		].join('\n'),
 	    
 		instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-		'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
-		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-		'Bu bölüm, önceki bölümle aynıdır.<br/>' +
-		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
-		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
-		'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
-		'<u>Mümkün olduğunca hızlı olun</u> ve doğru cevap vermeye çalışın.<br/><br/></p>' +
-		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
+			'<font color="#000000"><u>blockNum / nBlocks</u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'Bu bölüm, önceki bölümle aynıdır.<br/>' +
+			'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
+			'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
+			'Her öğe sadece bir kategoriye aittir.<br/><br/>' +
+			'<u>Mümkün olduğunca hızlı olun</u> ve doğru cevap vermeye çalışın.<br/><br/></p>' +
+			'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instSecondCombinedTouch:[
 		    '<div>',
 		        '<p align="center"><u>blockNum / nBlocks</u></p>',
@@ -126,8 +126,8 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		'<font color="#000000"><u>blockNum / nBlocks </u><br/><br/></p>' +
 		'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 		'<b>Dikkat edin, öğelerin pozisyonu değişti!</b><br/>' +
-		'<font color="#336600">leftCategory</font> ve <font color="#0000ff">leftAttribute</font> için <b>E</b> tuşunu kullanın.<br/>' + 
-		'<font color="#336600">rightCategory</font> ve <font color="#0000ff">rightAttribute</font> için <b>I</b> tuşunu kullanın.' +
+		'Soldaki kategoriye ait öğeler için <b>E</b> tuşuna basın. <font color="#336600">leftCategory</font>. ' +
+		'<br/>Sağdaki kategoriye ait öğeler için <b>I</b> tuşuna basın. <font color="#336600">rightCategory</font>.<br/>' +	
 		'<u>Mümkün olduğunca hızlı olun</u> doğru cevap vermeye çalışın.<br/><br/></p>' +
 		'<p align="center">Başlamaya hazır olduğunuzda <b>boşluk tuşuna</b> basın.</font></p></div>',
 		instSwitchCategoriesTouch: [
