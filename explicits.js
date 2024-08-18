@@ -11,7 +11,8 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Geç' : 'Soruyu Geç', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 8'
+        progressBar:  ''Sayfa <%= pagesMeta.number %> / 8',
+	submitText: isTouch ? 'Gönder' : 'Gönder', // Yeni buton metnini burada belirleyin
     });
 	
     /**
@@ -27,8 +28,6 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 8 %>',
-        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
     API.addQuestionsSet('basicSelect',{
