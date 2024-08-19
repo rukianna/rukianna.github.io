@@ -192,7 +192,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
         attribute1 : {
             name : 'Aile',
             title : {
-                media : {word : 'Aile'},
+                media : {word : 'Feminen'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
@@ -210,7 +210,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
         attribute2 : {
             name : 'Kariyer',
             title : {
-                media : {word : 'Kariyer'},
+                media : {word : 'Maskülen'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
