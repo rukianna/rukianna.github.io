@@ -9,10 +9,10 @@ define(['questAPI'], function(Quest){
         noSubmit:false, // Change to true if you don't want to show the submit button.
         header: 'Demografik Bilgiler',
         decline: true,
-        declineText: isTouch ? 'Geç' : 'Soruyu Geç', 
+        declineText: isTouch ? 'Gec' : 'Soruyu Gec', 
         autoFocus:true, 
         progressBar:  'Sayfa <%= pagesMeta.number %> / 8',
-	submitText: isTouch ? 'Gönder' : 'Gönder', // Yeni buton metnini burada belirleyin
+	submitText: isTouch ? 'Gonder' : 'Gonder', // Yeni buton metnini burada belirleyin
     });
 	
     /**
@@ -23,8 +23,8 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Please select an answer, or click \'Geç\'' 
-                : 'Please select an answer, or click \'Soruyu Geç\''
+                ? 'Please select an answer, or click \'Gec\'' 
+                : 'Please select an answer, or click \'Soruyu Gec\''
         },
         autoSubmit:'true',
         numericValues:'true',
@@ -48,20 +48,20 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('birthMonth',{
         inherit: 'basicSelect',
         name: 'birthMonth',
-        stem: 'Doğum ayınız nedir?',
+        stem: 'Dogum ayiniz nedir?',
         answers: [
             {text: 'Ocak', value: 'Ocak'},
-            {text: 'Şubat', value: 'Şubat'},
+            {text: 'subat', value: 'subat'},
             {text: 'Mart', value: 'Mart'},
             {text: 'Nisan', value: 'Nisan'},
-            {text: 'Mayıs', value: 'Mayıs'},
+            {text: 'Mayis', value: 'Mayis'},
             {text: 'Haziran', value: 'Haziran'},
             {text: 'Temmuz', value: 'Temmuz'},
-            {text: 'Ağustos', value: 'Ağustos'},
-            {text: 'Eylül', value: 'Eylül'},
+            {text: 'Agustos', value: 'Agustos'},
+            {text: 'Eylul', value: 'Eylul'},
             {text: 'Ekim', value: 'Ekim'},
-            {text: 'Kasım', value: 'Kasım'},
-            {text: 'Aralık', value: 'Aralık'}
+            {text: 'Kasim', value: 'Kasim'},
+            {text: 'Aralik', value: 'Aralik'}
         ]
     });
 
@@ -69,7 +69,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('birthYear',{
         inherit: 'basicDropdown',
         name: 'birthYear',
-        stem: 'Doğum yılınız nedir?',
+        stem: 'Dogum yiliniz nedir?',
         answers: (function(){
             let years = [];
             for (let i = 2005; i >= 1910; i--) {
@@ -85,7 +85,7 @@ define(['questAPI'], function(Quest){
         name: 'gender',
         stem: 'Cinsiyetiniz nedir?',
         answers: [
-            {text: 'Kadın', value: 'Kadın'},
+            {text: 'Kadin', value: 'Kadin'},
             {text: 'Erkek', value: 'Erkek'}
         ]
     });
@@ -94,10 +94,10 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('educationLevel',{
         inherit: 'basicSelect',
         name: 'educationLevel',
-        stem: 'Eğitim durumunuz nedir?',
+        stem: 'Egitim durumunuz nedir?',
         answers: [
             {text: 'Lisans', value: 'Lisans'},
-            {text: 'Lisansüstü', value: 'Lisansüstü'},
+            {text: 'Lisansustu', value: 'Lisansustu'},
             {text: 'Doktora', value: 'Doktora'}
         ]
     });
@@ -109,13 +109,13 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('relationshipDuration',{
         inherit: 'basicSelect',
         name: 'relationshipDuration',
-        stem: 'İlişki süreniz nedir?',
+        stem: 'Iliski sureniz nedir?',
         answers: [
             {text: '0-6 Ay', value: '0-6 Ay'},
             {text: '6 Ay - 1 Sene', value: '6 Ay - 1 Sene'},
-            {text: '1-2 Yıl', value: '1-2 Yıl'},
-            {text: '3-5 Yıl', value: '3-5 Yıl'},
-            {text: '6+ Yıl', value: '6+ Yıl'}
+            {text: '1-2 Yil', value: '1-2 Yil'},
+            {text: '3-5 Yil', value: '3-5 Yil'},
+            {text: '6+ Yil', value: '6+ Yil'}
         ]
     });
 
@@ -123,11 +123,11 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('genderRolesView',{
         inherit: 'basicSelect',
         name: 'genderRolesView',
-        stem: 'Cinsiyet rollerine bakışınızı ve toplumsal cinsiyete yönelik tutumunuzu nasıl tanımlarsınız?',
+        stem: 'Cinsiyet rollerine bakisinizi ve toplumsal cinsiyete yonelik tutumunuzu nasil tanimlarsiniz?',
         answers: [
-            {text: 'Biraz Eşitlikçi', value: 'Biraz Eşitlikçi'},
+            {text: 'Biraz Esitlikci', value: 'Biraz Esitlikci'},
             {text: 'Biraz Muhafazakar', value: 'Biraz Muhafazakar'},
-            {text: 'Tamamen Eşitlikçi', value: 'Tamamen Eşitlikçi'},
+            {text: 'Tamamen Esitlikci', value: 'Tamamen Esitlikci'},
             {text: 'Tamamen Muhafazakar', value: 'Tamamen Muhafazakar'},
             {text: 'Bilmiyorum', value: 'Bilmiyorum'}
         ]
@@ -137,13 +137,13 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('relationshipEquality',{
         inherit: 'basicSelect',
         name: 'relationshipEquality',
-        stem: 'İlişkinizi nasıl tanımlarsınız?',
+        stem: 'Iliskinizi nasil tanimlarsiniz?',
         answers: [
-            {text: 'Tamamen Eşitlikçi', value: 'Tamamen Eşitlikçi'},
-            {text: 'Eşitlikçi Değil', value: 'Eşitlikçi Değil'},
-            {text: 'Biraz Eşitlikçi', value: 'Biraz Eşitlikçi'},
-            {text: 'Biraz Eşitlikçi Değil', value: 'Biraz Eşitlikçi Değil'},
-            {text: 'Tamamen Eşitsiz', value: 'Tamamen Eşitsiz'}
+            {text: 'Tamamen Esitlikci', value: 'Tamamen Esitlikci'},
+            {text: 'Esitlikci Degil', value: 'Esitlikci Degil'},
+            {text: 'Biraz Esitlikci', value: 'Biraz Esitlikci'},
+            {text: 'Biraz Esitlikci Degil', value: 'Biraz Esitlikci Degil'},
+            {text: 'Tamamen Esitsiz', value: 'Tamamen Esitsiz'}
         ]
     });
 
@@ -151,12 +151,12 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('beliefInEquality',{
         inherit: 'basicSelect',
         name: 'beliefInEquality',
-        stem: 'Kadın erkek eşitliğine ne kadar inanıyorsunuz?',
+        stem: 'Kadin erkek esitligine ne kadar inaniyorsunuz?',
         answers: [
-            {text: 'Tamamen İnanıyorum', value: 'Tamamen İnanıyorum'},
-            {text: 'Biraz İnanıyorum', value: 'Biraz İnanıyorum'},
-            {text: 'Tamamen İnanmıyorum', value: 'Tamamen İnanmıyorum'},
-            {text: 'Biraz İnanmıyorum', value: 'Biraz İnanmıyorum'}
+            {text: 'Tamamen Inaniyorum', value: 'Tamamen Inaniyorum'},
+            {text: 'Biraz Inaniyorum', value: 'Biraz Inaniyorum'},
+            {text: 'Tamamen Inanmiyorum', value: 'Tamamen Inanmiyorum'},
+            {text: 'Biraz Inanmiyorum', value: 'Biraz Inanmiyorum'}
         ]
     });
 
