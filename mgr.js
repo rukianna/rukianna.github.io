@@ -8,7 +8,20 @@ define(['managerAPI',
     //const pt = urlParams.get('pt');
 
 	var API    = new Manager();
-	//const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
+	
+
+	// DataPipe'i başlatma. Burada OSF Proje ID'si ve Veri Bileşeni ID'si eklenmiştir.
+	init_data_pipe(API, 
+		'NkIIpkWT5EGRhn7wTIJEd9JFWvHko5PryC8nEMJVrecersfdyLrWgFUST1QzinfGg9g4Kz',  
+		{
+			file_type: 'csv', 
+			osf_project: '9t2u7',  // OSF Proje ID'si
+			osf_component: 'n6d5b'  // OSF Veri Bileşeni ID'si (component ID)
+		}
+	);
+});
+	
+	
 	init_data_pipe(API, 'NkIIpkWT5EGRhn7wTIJEd9JFWvHko5PryC8nEMJVrecersfdyLrWgFUST1QzinfGg9g4Kz',  {file_type:'csv'});	
 
     API.setName('mgr');
