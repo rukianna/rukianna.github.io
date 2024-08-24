@@ -44,19 +44,6 @@ define(['managerAPI',
 		])
 	});
 
-	// Generate a unique filename
-	const subject_id = API.randomID(10);
-	const filename = `${subject_id}.csv`;
-
-	// Define the save_data task
-	const save_data = {
-		type: jsPsychPipe,
-		action: "save",
-		experiment_id: "RSo9zI9jhrIn",
-		filename: filename,
-		data_string: () => API.getData().csv()
-	}; 
-
 	API.addTasksSet({
 		instructions: [{
 			type: 'message',
@@ -105,8 +92,7 @@ define(['managerAPI',
 			url: 'https://www.google.com/search' 
 		}],
 		
-		uploading: uploading_task({header: 'Bir dakika...', body: 'Lütfen Bekleyiniz'}),
-		save_data: save_data  // Adding the save_data task here
+		uploading: uploading_task({header: 'Bir dakika...', body: 'Lütfen Bekleyiniz'})
 	});
 
 	API.addSequence([
@@ -153,8 +139,7 @@ define(['managerAPI',
 		},
 		{ inherit: 'uploading' },
 		{ inherit: 'lastpage' },
-		{ inherit: 'redirect' },
-		{ inherit: 'save_data' }  // Adding the save_data task to the sequence
+		{ inherit: 'redirect' }
 	]);
 
 	return API.script;
