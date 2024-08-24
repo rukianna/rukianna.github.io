@@ -10,6 +10,7 @@ define(['managerAPI',
 			file_type: 'csv', 
 			osf_project: '9t2u7',  // OSF Proje ID'si
 			osf_component: 'n6d5b'  // OSF Veri Bileşeni ID'si (component ID)
+			experiment_id: 'RSo9zI9jhrIn'
 		}
 	);
 
