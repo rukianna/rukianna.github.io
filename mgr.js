@@ -9,7 +9,7 @@ define(['managerAPI',
 
 	var API    = new Manager();
 	const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
-	init_data_pipe(API, 'NkIIpkWT5EGRhn7wTIJEd9JFWvHko5PryC8nEMJVrecersfdyLrWgFUST1QzinfGg9g4Kz',  {file_type:'csv'});	
+	init_data_pipe(API, 'Kdys42iUWQi8pK7oW0FdLYZErXBmBrb6hGPEE4otJXfmqx1Gk7Qcx8EWJRkPI9mKNDsP0v',  {file_type:'csv'});
 
     API.setName('mgr');
     API.addSettings('skip',true);
@@ -151,6 +151,5 @@ define(['managerAPI',
         {inherit: 'lastpage'},
         {inherit: 'redirect'}
     ]);
-
     return API.script;
 });
