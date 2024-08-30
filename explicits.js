@@ -6,12 +6,13 @@ define(['questAPI'], function(Quest){
 	* Page prototype
 	*/
     API.addPagesSet('basicPage',{
-        noSubmit:false, //Change to true if you don't want to show the submit button.
-        header: 'Questionnaire',
+        noSubmit:false, // Change to true if you don't want to show the submit button.
+        header: 'Demografik Bilgiler',
         decline: true,
-        declineText: isTouch ? 'Decline' : 'Decline to Answer', 
+        declineText: isTouch ? 'Gec' : 'Soruyu Gec', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 3'
+        progressBar:  'Sayfa <%= pagesMeta.number %> / 8',
+	submitText: isTouch ? 'Gonder' : 'Gonder', // Yeni buton metnini burada belirleyin
     });
 	
     /**
@@ -22,98 +23,155 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Please select an answer, or click \'Decline\'' 
-                : 'Please select an answer, or click \'Decline to Answer\''
+                ? 'Please select an answer, or click \'Gec\'' 
+                : 'Please select an answer, or click \'Soruyu Gec\''
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
-        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
     API.addQuestionsSet('basicSelect',{
         inherit :'basicQ',
         type: 'selectOne'
     });
-	
+
     API.addQuestionsSet('basicDropdown',{
         inherit :'basicQ',
         type : 'dropdown',
         autoSubmit:false
     });
-	
-    API.addQuestionsSet('therm',{
-        inherit: 'basicSelect',
-        answers: [
-            {text:'10 - Extremely warm', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
-        ]
-    });
 
-	
     /**
-	*Specific questions
-	*/	
-    API.addQuestionsSet('attributes7',{
-        inherit : 'basicSelect',
-        name: 'attributes7',
-        stem: 'Which statement best describes you?',
+	* Demographic Questions
+	*/
+    // Birth Month
+    API.addQuestionsSet('birthMonth',{
+        inherit: 'basicSelect',
+        name: 'birthMonth',
+        stem: 'Dogum ayiniz nedir?',
         answers: [
-            {text:'I strongly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:7},
-            {text:'I moderately prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:6},
-            {text:'I slightly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:5},
-            {text:'I like <%= global.whiteLabels %> and <%= global.blackLabels %> equally.',value:4},
-            {text:'I slightly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:3},
-            {text:'I moderately prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:2},
-            {text:'I strongly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:1}
+            {text: 'Ocak', value: 'Ocak'},
+            {text: 'subat', value: 'subat'},
+            {text: 'Mart', value: 'Mart'},
+            {text: 'Nisan', value: 'Nisan'},
+            {text: 'Mayis', value: 'Mayis'},
+            {text: 'Haziran', value: 'Haziran'},
+            {text: 'Temmuz', value: 'Temmuz'},
+            {text: 'Agustos', value: 'Agustos'},
+            {text: 'Eylul', value: 'Eylul'},
+            {text: 'Ekim', value: 'Ekim'},
+            {text: 'Kasim', value: 'Kasim'},
+            {text: 'Aralik', value: 'Aralik'}
         ]
     });
-	
-    API.addQuestionsSet('thermBlack',{
-        inherit : 'therm',
-        name: 'Tblack_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.blackLabels %></b>?'
+
+    // Birth Year
+    API.addQuestionsSet('birthYear',{
+        inherit: 'basicDropdown',
+        name: 'birthYear',
+        stem: 'Dogum yiliniz nedir?',
+        answers: (function(){
+            let years = [];
+            for (let i = 2005; i >= 1910; i--) {
+                years.push({text: i.toString(), value: i});
+            }
+            return years;
+        })()
     });
 
-    API.addQuestionsSet('thermWhite',{
-        inherit : 'therm',
-        name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.whiteLabels %></b>?'
+    // Gender
+    API.addQuestionsSet('gender',{
+        inherit: 'basicSelect',
+        name: 'gender',
+        stem: 'Cinsiyetiniz nedir?',
+        answers: [
+            {text: 'Kadin', value: 'Kadin'},
+            {text: 'Erkek', value: 'Erkek'}
+        ]
     });
 
+    // Education Level
+    API.addQuestionsSet('educationLevel',{
+        inherit: 'basicSelect',
+        name: 'educationLevel',
+        stem: 'Egitim durumunuz nedir?',
+        answers: [
+            {text: 'Lisans', value: 'Lisans'},
+            {text: 'Lisansustu', value: 'Lisansustu'},
+            {text: 'Doktora', value: 'Doktora'}
+        ]
+    });
+
+    /**
+	* Specific Questions (Relationship Duration, Gender Roles, Relationship with Partner, Belief in Gender Equality)
+	*/
+    // Relationship Duration
+    API.addQuestionsSet('relationshipDuration',{
+        inherit: 'basicSelect',
+        name: 'relationshipDuration',
+        stem: 'Iliski sureniz nedir?',
+        answers: [
+            {text: '0-6 Ay', value: '0-6 Ay'},
+            {text: '6 Ay - 1 Sene', value: '6 Ay - 1 Sene'},
+            {text: '1-2 Yil', value: '1-2 Yil'},
+            {text: '3-5 Yil', value: '3-5 Yil'},
+            {text: '6+ Yil', value: '6+ Yil'}
+        ]
+    });
+
+    // Gender Roles and Attitudes
+    API.addQuestionsSet('genderRolesView',{
+        inherit: 'basicSelect',
+        name: 'genderRolesView',
+        stem: 'Cinsiyet rollerine bakisinizi ve toplumsal cinsiyete yonelik tutumunuzu nasil tanimlarsiniz?',
+        answers: [
+            {text: 'Biraz Esitlikci', value: 'Biraz Esitlikci'},
+            {text: 'Biraz Muhafazakar', value: 'Biraz Muhafazakar'},
+            {text: 'Tamamen Esitlikci', value: 'Tamamen Esitlikci'},
+            {text: 'Tamamen Muhafazakar', value: 'Tamamen Muhafazakar'},
+            {text: 'Bilmiyorum', value: 'Bilmiyorum'}
+        ]
+    });
+
+    // Relationship with Partner
+    API.addQuestionsSet('relationshipEquality',{
+        inherit: 'basicSelect',
+        name: 'relationshipEquality',
+        stem: 'Iliskinizi nasil tanimlarsiniz?',
+        answers: [
+            {text: 'Tamamen Esitlikci', value: 'Tamamen Esitlikci'},
+            {text: 'Esitlikci Degil', value: 'Esitlikci Degil'},
+            {text: 'Biraz Esitlikci', value: 'Biraz Esitlikci'},
+            {text: 'Biraz Esitlikci Degil', value: 'Biraz Esitlikci Degil'},
+            {text: 'Tamamen Esitsiz', value: 'Tamamen Esitsiz'}
+        ]
+    });
+
+    // Belief in Gender Equality
+    API.addQuestionsSet('beliefInEquality',{
+        inherit: 'basicSelect',
+        name: 'beliefInEquality',
+        stem: 'Kadin erkek esitligine ne kadar inaniyorsunuz?',
+        answers: [
+            {text: 'Tamamen Inaniyorum', value: 'Tamamen Inaniyorum'},
+            {text: 'Biraz Inaniyorum', value: 'Biraz Inaniyorum'},
+            {text: 'Tamamen Inanmiyorum', value: 'Tamamen Inanmiyorum'},
+            {text: 'Biraz Inanmiyorum', value: 'Biraz Inanmiyorum'}
+        ]
+    });
+
+    /**
+	* Sequence
+	*/
     API.addSequence([
-        {
-            mixer : 'random', 
-            data : [
-                {
-                    mixer : 'random', 
-                    wrapper:true, 
-                    data : [
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
-                        },
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
-                        }
-                    ]
-                },
-                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
-                }
-            ]
-        }
+        {inherit: 'basicPage', questions: {inherit: 'birthMonth'}},
+        {inherit: 'basicPage', questions: {inherit: 'birthYear'}},
+        {inherit: 'basicPage', questions: {inherit: 'gender'}},
+        {inherit: 'basicPage', questions: {inherit: 'educationLevel'}},
+        {inherit: 'basicPage', questions: {inherit: 'relationshipDuration'}},
+        {inherit: 'basicPage', questions: {inherit: 'genderRolesView'}},
+        {inherit: 'basicPage', questions: {inherit: 'relationshipEquality'}},
+        {inherit: 'basicPage', questions: {inherit: 'beliefInEquality'}}
     ]);
 
     return API.script;
