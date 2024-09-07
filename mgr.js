@@ -132,7 +132,7 @@ define(['managerAPI',
         
         {inherit: 'intro'},
         {
-            mixer:'wrapper',
+            mixer: 'wrapper',
             data:[
                 {inherit: 'explicits'},
 
@@ -152,4 +152,4 @@ define(['managerAPI',
         {inherit: 'redirect'}
     ]);
     return API.script;
-});
+};
