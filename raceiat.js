@@ -153,42 +153,42 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instThirdCombinedTouch : 'instFirstCombined', //this means that we're going to use the instFirstCombined property for the third combined block as well. You can change that.
 		instFourthCombinedTouch : 'instSecondCombined', //this means that we're going to use the instSecondCombined property for the fourth combined block as well. You can change that.
 
-        },
-			category1 :     {
-				name : global.blackLabels, //Will appear in the data and in the default feedback message.
-				title : {
-					media : {word : global.blackLabels}, //Name of the category presented in the task.
-					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
-					height : 4 //Used to position the "Or" in the combined block.
-				},
-				stimulusMedia : [ //Stimuli content as PIP's media objects
-					{word: 'Ayşe'},
-					{word: 'Fatma'},
-					{word: 'Canan'},
-					{word: 'Zeynep'},
-					{word: 'Elif'},
-					{word: 'Aysel'}
-				],
-				//Stimulus css (style)
-				stimulusCss : {color:'#336600','font-size':'2.3em'}
-			},
-			category2 :	{
-				name : global.whiteLabels, //Will appear in the data and in the default feedback message.
-				title : {
-					media : {word : global.whiteLabels}, //Name of the category presented in the task.
-					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
-					height : 4 //Used to position the "Or" in the combined block.
-				},
-				stimulusMedia : [ //Stimuli content as PIP's media objects
-					{word: 'Yusuf'},
-					{word: 'Murat'},
-					{word: 'Mustafa'},
-					{word: 'Ali'},
-					{word: 'Hasan'},
-					{word: 'Hüseyin'}
-				],
-				//Stimulus css
-				stimulusCss : {color:'#336600','font-size':'2.3em'}
+	},
+	category1 :     {
+	    name : global.blackLabels, //Will appear in the data and in the default feedback message.
+	    title : {
+	        media : {word : global.blackLabels}, //Name of the category presented in the task.
+		css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
+		height : 4 //Used to position the "Or" in the combined block.
+	    },
+	    stimulusMedia : [ //Stimuli content as PIP's media objects
+	        {word: 'Ayşe'},
+		{word: 'Fatma'},
+		{word: 'Canan'},
+		{word: 'Zeynep'},
+		{word: 'Elif'},
+		{word: 'Aysel'}
+	    ],
+	    //Stimulus css (style)
+	    stimulusCss : {color:'#336600','font-size':'2.3em'}
+	},
+	category2 :	{
+	    name : global.whiteLabels, //Will appear in the data and in the default feedback message.
+	    title : {
+	        media : {word : global.whiteLabels}, //Name of the category presented in the task.
+		css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
+		height : 4 //Used to position the "Or" in the combined block.
+	    },
+	    stimulusMedia : [ //Stimuli content as PIP's media objects
+	        {word: 'Yusuf'},
+		{word: 'Murat'},
+		{word: 'Mustafa'},
+		{word: 'Ali'},
+		{word: 'Hasan'},
+		{word: 'Hüseyin'}
+	    ],
+	    //Stimulus css
+	    stimulusCss : {color:'#336600','font-size':'2.3em'}
         },
         attribute1 : {
             name : 'Aile',
