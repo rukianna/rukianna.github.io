@@ -152,4 +152,4 @@ define(['managerAPI',
         {inherit: 'redirect'}
     ]);
     return API.script;
-};
+});
