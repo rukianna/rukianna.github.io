@@ -154,7 +154,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instFourthCombinedTouch : 'instSecondCombined', //this means that we're going to use the instSecondCombined property for the fourth combined block as well. You can change that.
 
         },
-			category1 : {
+			category1 :     {
 				name : global.blackLabels, //Will appear in the data and in the default feedback message.
 				title : {
 					media : {word : global.blackLabels}, //Name of the category presented in the task.
