@@ -154,9 +154,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		instFourthCombinedTouch : 'instSecondCombined', //this means that we're going to use the instSecondCombined property for the fourth combined block as well. You can change that.
 
 				category1 : {
-				name : 'Black people', //Will appear in the data.
+				name : 'Kadın', //Will appear in the data.
 				title : {
-					media : {word : 'Black people'}, //Name of the category presented in the task.
+					media : {word : 'Kadın'}, //Name of the category presented in the task.
 					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
 					height : 4 //Used to position the "Or" in the combined block.
 				},
@@ -172,9 +172,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 				stimulusCss : {color:'#336600','font-size':'2.3em'}
 			},
 			category2 :	{
-				name : 'White people', //Will appear in the data.
+				name : 'Erkek', //Will appear in the data.
 				title : {
-					media : {word : 'White people'}, //Name of the category presented in the task.
+					media : {word : 'Erkek'}, //Name of the category presented in the task.
 					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
 					height : 4 //Used to position the "Or" in the combined block.
 				},
