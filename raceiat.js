@@ -161,12 +161,12 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		height : 4 //Used to position the "Or" in the combined block.
 	    },
 	    stimulusMedia : [ //Stimuli content as PIP's media objects
-		{word: 'Tyron'},
-		{word: 'Malik'},
-		{word: 'Terrell'},
-		{word: 'Jazmin'},
-		{word: 'Tiara'},
-		{word: 'Shanice'}
+		{word: 'Ayşe'},
+		{word: 'Fatma'},
+		{word: 'Zeynep'},
+		{word: 'Ceren'},
+		{word: 'Selin'},
+		{word: 'Elif'}
 	    ],
 	    //Stimulus css (style)
 	    stimulusCss : {color:'#336600','font-size':'2.3em'}
@@ -179,12 +179,12 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 		height : 4 //Used to position the "Or" in the combined block.
 	    },
 	    stimulusMedia : [ //Stimuli content as PIP's media objects
-		{word: 'Jake'},
-		{word: 'Connor'},
-		{word: 'Bradley'},
-		{word: 'Allison'},
-		{word: 'Emma'},
-		{word: 'Emily'}
+		{word: 'Ali'},
+		{word: 'Ahmet'},
+		{word: 'Yusuf'},
+		{word: 'Mustafa'},
+		{word: 'Hasan'},
+		{word: 'Hüseyin'}
 	    ],
 	    //Stimulus css
 	    stimulusCss : {color:'#336600','font-size':'2.3em'}
