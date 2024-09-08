@@ -169,7 +169,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 					{word: 'Shanice'}
 				],
 				//Stimulus css (style)
-				stimulusCss : {color:'#336600','font-size':'2.3em'},
+				stimulusCss : {color:'#336600','font-size':'2.3em'}
 			},
 			category2 :	{
 				name : 'White people', //Will appear in the data.
@@ -187,7 +187,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 					{word: 'Emily'}
 				],
 				//Stimulus css
-				stimulusCss : {color:'#336600','font-size':'2.3em'},
+				stimulusCss : {color:'#336600','font-size':'2.3em'}
         attribute1 : {
             name : 'Aile',
             title : {
@@ -204,7 +204,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: global.negWords[5]}
             ],
             //Stimulus css
-            stimulusCss : {color:'#0000FF','font-size':'2.3em'},
+            stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         attribute2 : {
             name : 'Kariyer',
@@ -223,7 +223,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
  
             ],
             //Stimulus css
-            stimulusCss : {color:'#0000FF','font-size':'2.3em'},
+            stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         base_url : {//Where are your images at?
             image : global.baseURL
